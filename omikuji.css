@@ -25,10 +25,12 @@ p {
 }
 
 header {
-  margin-top: 8px;
-  color: rgba(253, 4, 120, 0.5);
+  margin-top: 40px;
+
+  color: rgba(253, 4, 79, 0.7);
   font-weight: bold;
   font-size: 38px;
+  text-shadow: 5px 5px 5px rgba(255, 255, 255, 0.65) ;
   text-align: center;
 }
 
@@ -45,32 +47,52 @@ header {
 #btn1 {
   position: relative;
   margin: 20px auto;
-  width: 250px;
-  height: 250px;
-  line-height: 250px;
-  border-radius: 50%;
-  color: rgb(255, 0, 212);
-  font-weight: bold;
-  font-size: 40px;
-  text-align: center;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.65);
-  background: linear-gradient(#6795fd 0%, #afeeae 100%);
-  box-shadow: 0 10px 0 grey;
-  justify-content: center;
+  width: 200px; /* chỗ này đã thay đổi từ 250px */
+  height: 400px; /* chỗ này đã thay đổi từ 250px */
+  background-image: url(./img/omikuji.png); /* thêm hình nền omikuji */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
   cursor: pointer;
   user-select: none;
 }
 
+
 #btn1:hover {
-  background: linear-gradient(#da70d6 0%, pink 100%);
+  animation: shaking 0.3s infinite;
 }
 
+@keyframes shaking {
+  0% { transform: translate(0px, 0px) rotateZ(0deg); }
+  25% { transform: translate(2px, 2px) rotateZ(1deg); }
+  55% { transform: translate(-2px, -2px) rotateZ(-1deg); }
+  100% { transform: translate(0px, 0px) rotateZ(0deg); }
+}
 #btn1:active {
   position: relative;
-  top: 5px;
-  left: 5px;
-  box-shadow: 0 5px 0 grey;
+  top: 10px;
+  left: 10px;
 }
+/* モバイル表示 */
+@media screen and (max-width: 480px) {
+  body {
+    background-position: 75% 0%;
+    background-size: auto 1000px;
+  }
+  header {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+  #btn1 {
+    width: 150px;
+    height: 280px;
+    margin: 0;
+  }
+  #omikujiText {
+    margin: 0;
+  }
+}
+
 
 footer p {
   position: absolute;
